@@ -15,6 +15,7 @@ import Button from './Button';
 export function App() {
   const timeout = useRef(parseInt(light.animationDuration));
   let deleteContactID = useRef(null);
+  const themes = useRef([light, dark, blue]);
 
   const [filter, setFilter] = useState('');
   const [isModalOpen, setModalOpen] = useState(false);
@@ -53,8 +54,8 @@ export function App() {
     setModalOpen(true);
   };
 
-  const changeTheme = value => {
-    setTheme(value);
+  const changeTheme = theme => {
+    setTheme(theme.theme);
     document.querySelector('#sidebar-1').classList.add('hidden');
     setTimeout(() => {
       setSidebarOpen(false);
@@ -83,30 +84,19 @@ export function App() {
         </Button>
         {isSidebarOpen && (
           <DropList id={'sidebar-1'}>
-            <Button
-              onClick={() => {
-                changeTheme(dark);
-              }}
-              padding="5px 10px"
-            >
-              Dark
-            </Button>
-            <Button
-              onClick={() => {
-                changeTheme(light);
-              }}
-              padding="5px 10px"
-            >
-              Light
-            </Button>
-            <Button
-              onClick={() => {
-                changeTheme(blue);
-              }}
-              padding="5px 10px"
-            >
-              Blue
-            </Button>
+            {themes.current.map(theme => {
+              return (
+                <Button
+                  key={theme.name}
+                  onClick={() => {
+                    changeTheme({ theme });
+                  }}
+                  padding="5px 10px"
+                >
+                  {theme.name}
+                </Button>
+              );
+            })}
           </DropList>
         )}
         <h1>Phonebook</h1>

@@ -10,6 +10,7 @@ const base = {
 
 export const light = {
   ...base,
+  name: 'Light',
   bgColor: '#fff',
   textColor: '#000',
   bgElementColor: '#60D0CA',
@@ -20,6 +21,7 @@ export const light = {
 
 export const dark = {
   ...light,
+  name: 'Dark',
   bgColor: '#2D2831',
   textColor: '#fff',
   bgElementColor: '#8c6fcf',
@@ -28,6 +30,7 @@ export const dark = {
 
 export const blue = {
   ...light,
+  name: 'Blue',
   bgColor: '#41418a',
   textColor: '#fff',
   bgElementColor: '#c9cf6f',
