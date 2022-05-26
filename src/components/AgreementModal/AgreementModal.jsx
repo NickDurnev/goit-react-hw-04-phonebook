@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
-import { useEffect, useRef } from 'react';
 import { Modal, Backdrop } from './AgreementModal.styled';
 
 const modalRoot = document.querySelector('#modal-root');

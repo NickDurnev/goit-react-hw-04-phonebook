@@ -16,7 +16,6 @@ export function App() {
   const timeout = useRef(parseInt(light.animationDuration));
   let deleteContactID = useRef(null);
   const themes = useRef([light, dark, blue]);
-
   const [filter, setFilter] = useState('');
   const [isModalOpen, setModalOpen] = useState(false);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
