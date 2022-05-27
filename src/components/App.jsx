@@ -55,6 +55,10 @@ export function App() {
 
   const changeTheme = theme => {
     setTheme(theme.theme);
+    sidebarHandleClose();
+  };
+
+  const sidebarHandleClose = () => {
     document.querySelector('#sidebar-1').classList.add('hidden');
     setTimeout(() => {
       setSidebarOpen(false);
@@ -69,9 +73,15 @@ export function App() {
     }, timeout.current * 2);
   };
 
+  const handleClickClose = e => {
+    if (e.target === e.currentTarget) {
+      sidebarHandleClose();
+    }
+  };
+
   return (
     <ThemeProvider theme={theme}>
-      <Container>
+      <Container onClick={handleClickClose}>
         <Button
           onClick={() => setSidebarOpen(true)}
           padding={'5px 32px'}
